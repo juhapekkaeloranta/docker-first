@@ -1,0 +1,13 @@
+version: '2'
+services:
+  db:
+    image: postgres
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b 0.0.0.0 Puma
+    ports:
+      - "8002:3000"
+    volumes:
+      - .:/myapp
+    depends_on:
+      - db
