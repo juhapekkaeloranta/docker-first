@@ -1,12 +1,23 @@
-development: &default
+development:
   adapter: postgresql
   encoding: unicode
-  database: myapp_development
+  database: ohturubypg
   pool: 5
   username: postgres
   password:
   host: db
 
 test:
-  <<: *default
-  database: myapp_test
+  adapter: sqlite3
+  database: db/test.sqlite3
+  pool: 5
+  timeout: 5000
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: ohturubypg
+  pool: 5
+  username: postgres
+  password:
+  host: db
